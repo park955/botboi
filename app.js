@@ -22,5 +22,29 @@ login({email: process.env.FB_EMAIL, password: process.env.FB_PASSWORD }, (err, a
       }
       api.sendMessage(reply, message.threadID);
     }
+
+    else if(msg.indexOf('/peter') == 0) {
+      let reply = {
+        body: msg.substring(6, msg.length),
+        attachment: fs.createReadStream(__dirname + '/peter.png')
+      }
+      api.sendMessage(reply, message.threadID);
+    }
+
+    else if(msg.indexOf('/cj2') == 0) {
+      let reply = {
+        body: msg.substring(4, msg.length),
+        attachment: fs.createReadStream(__dirname + '/cj2.jpg')
+      }
+      api.sendMessage(reply, message.threadID);
+    }
+
+    else if(msg.indexOf('/cj') == 0) {
+      let reply = {
+        body: msg.substring(3, msg.length),
+        attachment: fs.createReadStream(__dirname + '/cj.jpg')
+      }
+      api.sendMessage(reply, message.threadID);
+    }
   })
 })
